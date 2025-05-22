@@ -39,5 +39,6 @@ Route::resource('/admin/penyakit', PenyakitController::class)->middleware('auth'
 Route::resource('/admin/gejala', GejalaController::class)->middleware('auth');
 Route::resource('/admin/aturan', AturanController::class)->middleware('auth');
 Route::get('/admin/result', [DiagnosisController::class, 'admin'])->middleware('auth')->name('admin.diagnosis.index');
+Route::get('/admin/diagnosa/export', [DiagnosisController::class, 'exportExcel'])->name('diagnosa.export');
 
 

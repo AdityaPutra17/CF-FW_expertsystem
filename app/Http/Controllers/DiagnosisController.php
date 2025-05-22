@@ -8,6 +8,9 @@ use App\Models\Penyakit;
 use App\Models\Aturan;
 use Illuminate\Http\Request;
 
+use App\Exports\DiagnosaExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class DiagnosisController extends Controller
 {
     public function showForm()
@@ -171,5 +174,10 @@ class DiagnosisController extends Controller
     {
         $diagnoses = Diagnosis::with('penyakit')->latest()->paginate(255);
         return view('admin.diagnosa.index', compact('diagnoses'));
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new DiagnosaExport, 'data_diagnosa.xlsx');
     }
 }

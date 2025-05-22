@@ -4,6 +4,7 @@
 <div class="container mx-auto mt-5">
     <div class="flex mb-5 justify-between">
         <h1 class="font-bold text-4xl text-blue-900">Data Hasil Diagnosa</h1>
+        <a href="{{ route('diagnosa.export') }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Export Excel</a>
     </div>
 
     <div class="p-5 bg-white rounded-lg shadow-lg">
@@ -14,7 +15,6 @@
                     <th class="border px-4 py-2">Nama</th>
                     <th class="border px-4 py-2">Hasil Diagnosa</th>
                     <th class="border px-4 py-2">Detail Gejala</th>
-                    <th class="border px-4 py-2">Tanggal</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,7 +65,6 @@
                                 </div>
                             </div> 
                         </td>
-                        <td class="border px-4 py-2 text-center">{{ $diagnosis->created_at->format('d M Y H:i') }}</td>
                     </tr>
                 @endforeach
             </tbody>
